@@ -1,0 +1,165 @@
+BattleShip Game, more details, starts on page 86/704 of the book at 95.40% zoom on Foxit reader.  
+// The document got rather long, so I've created an index for quick navigation:
+-----------------------------------------------------------------------------------------
+
+
+				***DELIBERATELY BLANK***
+
+
+-----------------------------------------------------------------------------------------  
+
+/*  START of 	CONTENTS / INDEX 	Section
+
+A)  Basic Explanation and Legend: 
+		GO TO LINE 44 (EXPLANATION, ends on LINE 50)
+		GO TO LINE 52 (LEGEND, ends on LINE 61)
+
+B)  Game Logic and Flow:  
+		GO TO LINE 69 (LOGIC AND FLOW ends on LINE 87)
+
+C)  A Few More Details:  
+		GO TO LINE 96 (ends on LINE 110)
+
+D)  Things to Consider:
+		GO TO LINE 120 (SECTION ends on LINE 151) 
+		Representing Ships: GO TO LINE 124 (ends on LINE 134)
+		Getting User Input: GO TO LINE 136 (ends on LINE 142)
+		Displaying the Results:  GO TO LINE 144 (ends on LINE 152)
+
+  END OF 	CONTENTS / INDEX 	Section*/
+-----------------------------------------------------------------------------------------
+
+
+				***DELIBERATELY BLANK***
+
+
+-----------------------------------------------------------------------------------------
+
+
+DATE STARTED:  24/05/2019
+DATE FINISHED: 
+
+
+
+-----------------------------------------------------------------------------------------
+/* START OF Basic Explanation and Legend SECTION
+
+The book uses a flowchart with circles to represent start or finish, a rectangle to represent an action and a diamond to represent a decision point of the program.  
+
+I don't have that functionality in Sublime Text (my text editor of choice while I work through this book), so I'm going to see what I can come up with below, and edit this section to contain some form of legend later.  
+
+This legend is what I have come up with.  There's probably a better way to do this, but it should serve for now till I figure that out.  
+
+LEGEND:  
+	1)  Text contained within dashes, --- like this --- , are START OR STOP POINTS OF THE PROGRAM.  
+	2)  Text contained within angle brackets, >>> LIKE THIS <<< are ACTIONS.  
+	3)  Text contained within curly brackets, {{{ LIKE THIS }}} , describes a LOOP.  
+	4)  Text all in capital letters, LIKE THIS , marks a decision point in the program (IF / CONDITIONAL STATEMENTS). 
+		((Note - The capital letters in this legend, except from the 'like this' example in number 4, are used for emphasis, 
+			NOT to mark a decision point.))
+
+
+END OF Basic Explanation and Legend SECTION */
+-----------------------------------------------------------------------------------------
+
+
+				***DELIBERATELY BLANK***
+
+
+-----------------------------------------------------------------------------------------
+/*  START OF 	Game Logic and Flow 	SECTION 
+
+1)  --- Start the game --- 
+1b)	>>> Set up the game <<< 
+
+2) 	>>> Get user guess <<< 
+		
+2b) 
+	{{{	CHECK GUESS:  
+		  			If it's a hit, >>> mark the ship as hit. <<<  
+		  				If it's a miss, LOOP back and >>> get another guess <<< from the user.
+	}}}  
+					   Otherwise, >>> mark the ship as sunk <<< 
+
+3) >>> Display the user's score/rating. <<<
+3b) --- Game is over, let the user know, and finish the code execution. --- 
+
+
+  END OF 	Game Logic and Flow 	SECTION */
+-----------------------------------------------------------------------------------------
+
+
+				***DELIBERATELY BLANK***
+
+
+-----------------------------------------------------------------------------------------
+
+/* START OF  a few more details  SECTION 
+
+1)  The game starts and creates a battleship, then gives it a location on a 1 by 7 grid (essentially a single line).  
+	This location will be 3 'grid squares' long, are just integers (full numbers: 1 , 2, 3, etc)
+
+2)  The game play starts, and prompts the user to guess a location.  (ask for a number from 0 to 6)
+	b)  Check the user input against the ships
+			Track how many hits occur in a variable (store numeric data in a LET variable, as this number can change).  
+
+3)  If all three cells are hit, the game is over: 
+		Our hits variable value will be 3.  
+		Tell the user how many guesses it took to complete the game/sink the ship (both the same thing in this case, but just for description).
+
+
+ END OF a few more details SECTION */
+-----------------------------------------------------------------------------------------
+
+
+				***DELIBERATELY BLANK***
+
+
+-----------------------------------------------------------------------------------------
+
+/* START OF  things to consider  SECTION 
+
+There is a lot of text in the book describing things like representing the ships, getting user input, and displaying the result.  Here follows my description as far as possible.  
+
+1)  Representing the ships:  
+		*  The grid is virtual, we don't have to display a graphical representation.  Just make sure the game and the user are aware that it's virtual, and it's sizes.  
+
+		*  The battleship is hidden in 3 consecutive cells out of seven (we begin at number zero, because that's how computers work).
+			EXAMPLE:  Ship generates at cell 3, 4 and 5, Like this:  
+
+			      X X X
+			0 1 2 3 4 5 6   
+
+				Where the X's are the ship locations.  
+		*  
+
+2)  Getting user input:  
+		*  The PROMPT function will allow us to ask the user for input.  For example:  
+			prompt("Ready, aim, FIRE!  Enter a number from 0 - 6!")  
+				((This example was taken directly from the text, and will be used in the program)).
+
+		*  Remember - Every time we want a new location from the user, we can prompt them and get the input the entered, which should be a number from 0 to 6 in this case.  
+
+
+3)  Displaying the results:  
+		*  Displaying results is called outputting it to the user.  
+
+		*  In this case, as it's early stages, we'll use alert to output results.  
+
+		*  NOTE - In real world/game use, we will update a web-page instead of alerting, but let's walk before we can run.
+
+
+END OF things to consider SECTION */   
+-----------------------------------------------------------------------------------------
+
+
+				***DELIBERATELY BLANK***
+
+
+-----------------------------------------------------------------------------------------
+
+						******** END OF DOCUMENT ********
+************************************************************************************************************************
+************************************************************************************************************************
+
+

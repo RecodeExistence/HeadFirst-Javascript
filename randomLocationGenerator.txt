@@ -1,0 +1,8 @@
+let randomLoc = Math.floor(Math.random() * 5);		// Generate a number up to 4.99 , clip off the decimal.  
+
+// Now we use the above to assign locations:  
+		let location1 = randomLoc; 
+		let location2 = location1++ ; 
+		let location3 = location2++ ; 
+
+		//I should now be able to edit my battleship code to make it generate random locations each time.  

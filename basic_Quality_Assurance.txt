@@ -1,0 +1,54 @@
+// Simple Battleship QA (Quality Assurance)
+	// Page 101/704 Foxit reader. 
+
+Quality assurance is described in the text as being the process of testing software to find defects or bugs.  
+
+We have to test different situations of the Simple Battleship game;  this means we literally try to break the code, see what we can do that wasn't intended for the end user etc.  
+
+This process will allow us to deal with problems before a program goes into released for use.  (Well, as many as possible, it's not likely to catch *every* single bug).
+
+// Simple Battleship - Defects found:  
+
+Test 1) 	Enter a string instead of a number: 
+		Result:  The guess counter incremented despite it not being a valid guess (didn't meet the entry requirements of the user 			 entering a number 0-6).  
+					The program should recognise that no integer was entered, and prompt the user to correct this.  
+					The guess counter shouldn't really increment in this case, as it's not a valid guess.  
+
+Test 2)  	Pressing the "Cancel" button option of the dialogue box: 
+		Result:  This repeats the same problem as above;  
+					It shouldn't increment the guesses count, and should really exit the program, instead of prompting the user for another try.  
+					These issues could be addressed in the conditional to test the user's input is valid.  
+
+Test 3)  	Leaving the dialogue box text entry field empty:
+ 		Result:  Also repeats our problem.  Once again, the user should be informed it's not a valid entry, and prompted to enter a valid option, without incrementing the guesses variable value.  
+
+Test 4)  	Enter 3 identical values which result in a hit:  
+		Result:  This allowed us to win the game, which is still technically a valid strategy at this point of development.  For the final product though, this shouldn't be a way for the user to complete the game.  
+
+Test 5)  	Pressing the stop button on the browser, and then pressing refresh:  
+		Result:  This didn't refresh the game code properly.  The game continued executing, and also gave us a result of "miss".  
+		This should break out of the loop, refreshing the game entirely, allowing the user to begin again.  It achieved none of these things.  
+	Once the game finished, the refresh finally went through, which is what the user wanted really, but they shouldn't have to go through an entire game before they can refresh a new beginning.  
+
+Test 6)  This isn't really a test as such, but once the user realises that the ship location is currently hardcoded, it removes all replay value.  
+	We can address this issue by generating random ship locations every time the game plays.  (I've developed a function for this in another document, but have to learn how to use it properly.)
+
+Test 7)  Entering illegal characters which can be used for cross site scripting, or to feed scripts to the program directly from our dialogue box:  
+	Result: 
+	We can enter things like <script> </script> , non numeric or string characters like ! or commas , etc.  This can potentially be very dangerous, and should be stripped in the section of code which tests the users input is valid.  
+
+
+
+// Thoughts: 
+	These are the tests and results I can produce for now.  I'm sure there are more, but I'll probably discover them as I learn more JavaScript and develop this program further.  
+
+	For now, one of the main things to fix would be filtering (sanitizing) the users input, and ensuring they can't cheat the game by repeating the same cell over and over.  
+
+
+// Below is a logical way to ensure the user can't repeat the same cell location 3 times to win:  
+
+1) Add the users last guess to an array, 
+2) Check the users current guess against those already stored in the last guess array.  
+3)  If it's already in the array, alert the user they can't choose that cell again ((or, re-randomise the ship location ((could actually be fun, the ship is "moving" around each turn to avoid attack))  )).  
+
+I realise that using array data types are outwith the scope of the current chapter, but, it's something to consider.  

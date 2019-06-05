@@ -1,0 +1,47 @@
+// Battleship Game PseudoCode  
+// Written from page 87/704
+
+
+//Variables: 
+
+Declare three variables to hold where each cell of the ship generates:  
+	location1
+	location2
+	location3
+
+Declare a variable to hold the users current guess:  
+	guess 
+
+Declare a variable to hold the number of hits, set it to 0 to start with:  
+	hits
+
+Declare a variable to hold the number of guesses, set it to 0:  
+	guesses
+
+Declare a variable to keep track of whether the ship is sunk, and set it to false (the variable value is boolean, and should let us know whether to exit the loop): 
+	isSunk
+
+
+//LOOP , while the ship is not sunk:  
+	Get the user's guess (put it into the variable called guess). 
+	Compare the user's input to valid input values (check it's actually a number, and in the number range we need).  
+
+	IF the users guess is invalid: 
+		Tell the user to enter a valid number (use prompt again, but with a slightly different message?).
+
+//ELSE
+	The user has guessed again, so increment the guesses variable value by one.  
+	// IF the users guess matches a location in the variables, location1, location2, or location3
+		Increment the value of the hits variable by 1.  
+			
+			//IF the number of the hits variable reaches 3
+				Set the isSunk boolean value from false to true.  
+				Tell the user they sank the battleship.  
+
+			End the IF that checks the hits variable value
+		End the IF that checks if the users guess matches a location of the ships cells. 
+	END the else of the LOOP.
+Give the user their stats.    
+
+
+
