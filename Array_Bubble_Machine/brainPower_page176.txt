@@ -1,0 +1,67 @@
+// Brain Power , page 176
+
+Take some time to sketch out ideas of how to make the code discussed on this page:  
+
+
+Here's the array:  
+
+var scores = [60, 50, 60, 58, 54, 54,
+58, 50, 52, 54, 48, 69,
+34, 55, 51, 52, 44, 51,
+69, 64, 66, 55, 52, 61,
+46, 31, 57, 52, 44, 18,
+41, 53, 55, 61, 51, 44];
+
+1) List each solution and their scores.  
+Logic:  Solution = index in this case.  
+scores = scores[index].  
+
+Using that logic , i can write a loop to go through each index and log it to the console, along with any messages:  
+
+for(let i = 0 ; i < scores.length ; i++) {
+	console.log("Bubble solution #" + i + " is: " + scores[i]);
+}
+
+2)  Then print the total number of bubble scores.  
+
+I can access that by using the .length property of the array. I'm going to save the length in a variable for future re-use.  I also want this one to be a function, for practice.  In our exercise, that would be:
+
+function arrayLength(arr) {
+	var lengthIs = arr.length ; 	// save array length in a variable
+	return lengthIs; 	//return lengthIs, so we can use it in another function 
+}
+
+function dispLength(arrLength) {
+	console.log(`Bubbles tests: ${arrLength}`);
+}	// display the required output to the console, using the result of arrayLength function on our array first then passing that as an argument to the arrLength local parameter.
+
+3)  Finally, display the high score, and which index (solutions) had those high scores.  
+
+PSEUDO: 
+To get the highest score, have a value to compare it to:  
+
+let highScore;	// Undefined, for comparison. 
+let solutionAt = [] ; 	//Push indexes here for use later.  
+
+Check if the contents of the current index is higher or equal to the current value of highScore:  
+
+function highest(array) {
+let highScore;	// Undefined, for comparison. 
+let solutionAt = [] ; 	//Push indexes here for use later.  
+
+// Check if the contents of the current index is higher or equal to the current value of highScore:  
+
+for(let i = 0 ; i < array.length ; i++)
+	// Opened a for loop , to iterate through each index of the array.  
+	if(array[i] < highScore) {
+	i++	//If it's less than the current high score, we can ignore it, so iterate up one index. 
+	} else {
+	highScore = array[i];	//Update highScore value with the new highest value.  
+
+	/*	commented out.  need to work on that feature in a seperate function to test it.  
+	solutionAt.push([i]);	//Add the current index we found the new highest score at to the solutionAt.  We can use this array later 	  to display the right information.  */
+	}; 
+	let finalOutput = "Highest Bubble Score: " + highScore; 
+	return finalOutput;
+
+}
