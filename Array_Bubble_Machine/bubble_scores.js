@@ -1,5 +1,5 @@
 /* This code is from page 176 brain power exercise on HFJS book.  
-/ Things to remember from this:  
+    Things to remember from this:  
   
     Functions can be called within other functions. 
     Variables can be assigned the results of those function calls within functions.  
@@ -34,7 +34,7 @@ function arrayLength(array) {
 // function to find the highest value in an array
 function getHighest(array) {
 let highestNumber = 0;
-  for(let i = 0 ; i < array.length ; i++) {
+  for(let i = 0 ; i < array.length ; i++) { //loop through the array, check if each number is higher, reassign highestNumber if it is.
     if(array[i] >= highestNumber) {
             highestNumber = array[i];
             }
