@@ -1,0 +1,43 @@
+//  Brain Power page 176
+
+1)  list all solutions and their corresponding scores:  
+	var scores = [60, 50, 60, 58, 54, 54,
+	58, 50, 52, 54, 48, 69,
+	34, 55, 51, 52, 44, 51,
+	69, 64, 66, 55, 52, 61,
+	46, 31, 57, 52, 44, 18,
+	41, 53, 55, 61, 51, 44];
+
+	function listScores(array) {
+		for(let i = 0 ; i < array.length ; i++) {
+		console.log(`Bubble solution # ${i} score: ${array[i]}`);
+
+		}
+
+	}	//This code is a working example for this section of the question.  
+
+
+// 2)  Print the total number of bubble scores:  
+	function arrayLength(array) {
+	let totalNumScores = array.length ;
+	return totalNumScores;
+	}	// This code is a working example for this section of the question. 
+
+
+//	3)  Followed by the highest score: 
+	function getHighest(array) {
+		let highestNumber = 0;  
+
+	for(let i = 0 ; i < array.length ; i++) {
+		if(array[i] >= highestNumber) {
+			highestNumber = array[i];
+			}
+		}
+	// Assign highest score to a variable, return for later use.  
+	let returnedHighest = highestNumber; 
+		return returnedHighest; 
+}
+
+	3b) Also grab the indexes the high scores were at:  
+
+		// STUCK HERE.  CHECK LESSON, TRIED A LOT OF WAYS AND CAN'T FIGURE IT OUT.  
