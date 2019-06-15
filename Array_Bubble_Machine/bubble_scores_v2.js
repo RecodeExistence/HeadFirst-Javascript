@@ -47,7 +47,7 @@ return highScore;
 
 
 // function to gather the indexes of each highest score. (Can this be improved by calling getHighest then pushing each index?
-function highScoresIndexes(array) {
+function highScoresIndexes(array, highScore) {
     let topScoresAt = [] ;
 	highScore = getHighScore(array);
     for(let i = 0 ; i < array.length ; i++) {
@@ -70,3 +70,14 @@ document.write(`Solutions with highest score: ${indexes}`);
 
 }
 
+//function to decide the most cost effective best solution as evaluated by other functions. 
+function bestCost(array) {  // feed in the costs array, which is parrallel to the scores array
+    let indexesToCheck = highScoresIndexes(array);  //run the function to check which is highest value in scores array
+    let bestValueCost = getHighScore(array)
+        for(let i = 0 ; i < indexesToCheck.length ; i++) {
+            if(indexesToCheck[i] < bestValueCost) {
+                bestValueCost = indexesToCheck[i];
+        }
+    }
+            console.log(bestValueCost);
+}
