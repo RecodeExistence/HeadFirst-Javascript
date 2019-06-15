@@ -1,15 +1,16 @@
-/* This code is from page 176 brain power exercise on HFJS book.  
-    Things to remember from this:  
-  
-    Functions can be called within other functions. 
-    Variables can be assigned the results of those function calls within functions.  
-    Make sure to return values from a function, or we have nothing to work with.  
+/* This code is from page 176 brain power exercise on HFJS book.
+/ Things to remember from this:
+
+    Functions can be called within other functions.
+    Variables can be assigned the results of those function calls within functions.
+    Make sure to return values from a function, or we have nothing to work with.
     Functions can be chained (method chaining), such as arrayLength(getHighest(scores));
-        THAT EXAMPLE ABOVE DOESN'T DO ANYTHING HERE, BUT THE SYNTAX/UNDERSTANDING IS VALID. 
-    Be selective with function, parameter and variable names.  
-    Don't populate global scope where possible.  
+        THAT EXAMPLE ABOVE DOESN'T DO ANYTHING HERE, BUT THE SYNTAX/UNDERSTANDING IS VALID.
+    Be selective with function, parameter and variable names.
+    Don't populate global scope where possible.
 */
 
+// scores array, for the first section.  
 var scores = [60, 50, 60, 58, 54, 54,
     58, 50, 52, 54, 48, 69,
     34, 55, 51, 52, 44, 51,
@@ -17,7 +18,14 @@ var scores = [60, 50, 60, 58, 54, 54,
     46, 31, 57, 52, 44, 18,
     41, 53, 55, 61, 51, 44];
 
-  // function to display all scores one after the other: 
+var costs = [.25, .27, .25, .25, .25, .25,
+.33, .31, .25, .29, .27, .22,
+.31, .25, .25, .33, .21, .25,
+.25, .25, .28, .25, .24, .22,
+.20, .25, .30, .25, .24, .25,
+.25, .25, .27, .25, .26, .29];
+
+  // function to display all scores one after the other:
     function listScores(array) {
         for(let i = 0 ; i < array.length ; i++) {
         document.write(`Bubble solution # ${i} score: ${array[i]} <br>`);
@@ -32,40 +40,52 @@ function arrayLength(array) {
     }
 
 // function to find the highest value in an array
-function getHighest(array) {
-let highestNumber = 0;
-  for(let i = 0 ; i < array.length ; i++) { //loop through the array, check if each number is higher, reassign highestNumber if it is.
-    if(array[i] >= highestNumber) {
-            highestNumber = array[i];
-            }
+function getHighScore(array) {
+    let highScore = 0 ;  
+
+    for(let i = 0 ; i < array.length ; i++) {
+        if(array[i] > highScore) {
+            highScore = array[i] ; 
         }
-    // Assign highest score to a variable, return for later use.  
-     let returnedHighest = highestNumber; 
-        return returnedHighest;
+
+    }
+return highScore;
 }
 
 
 // function to gather the indexes of each highest score. (Can this be improved by calling getHighest then pushing each index?
-function indexAt(array) {
-        let highestNumber = 0;
-    let indexAt = [] ;  //array to save indexes of high scores. 
-  for(let i = 0 ; i < array.length ; i++) {
-    if(array[i] >= highestNumber) {
-            highestNumber = array[i];
-      indexAt.push(`#${i}, `);
-            }
-        }  
-    return indexAt;
-}  
+function highScoresIndexes(array, highScore) {
+    let topScoresAt = [] ;
+    for(let i = 0 ; i < array.length ; i++) {
+        if(array[i] == highScore) {
+            topScoresAt.push(i);
+        }
+    }
+        return topScoresAt ; 
+}
 
-//function to output info needed: 
-function displayResults(array) {	//I've changed this to an anonymous function, as all it's arguments are pulled from other function calls?))
-listScores(array);	// display all scores 
+//function to output info needed:
+function displayResults(array) {    //I've changed this to an anonymous function, as all it's arguments are pulled from other function calls?))
+listScores(array);  // display all scores
 numOfTests = arrayLength(array);  // run arrayLength on our function, save it to numOfTests (maybe let so local, no param)
 document.write(`Bubble tests: ${numOfTests} <br>`);
-highest = getHighest(array); 
-document.write(`Highest bubble score: ${highest} <br>`);
-indexes = indexAt(array);
+highScore = getHighScore(array); 
+document.write(`Highest bubble score: ${highScore} <br>`);
+indexes = highScoresIndexes(array, highScore);
 document.write(`Solutions with highest score: ${indexes}`);
 
 }
+
+//function to decide the most cost effective best solution as evaluated by other functions. 
+function bestCost(array) {  // feed in the costs array, which is parrallel to the scores array
+    let indexesToCheck = highScoresIndexes(array);  //run the function to check which is highest value in scores array
+    let bestValueCost = getHighScore(array)
+        for(let i = 0 ; i < indexesToCheck.length ; i++) {
+            if(indexesToCheck[i] < bestValueCost) {
+                bestValueCost = indexesToCheck[i];
+        }
+    }
+            console.log(bestValueCost);
+}
+
+
