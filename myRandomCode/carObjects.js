@@ -1,5 +1,7 @@
 /* It took me several goes to get this working.  Most of the methods etc worked well , but there was some trouble with the driveAway method.
 It wasn't responding negatively when some of the booleans were in the incorrect state. 
+Mainly, the getReady method seemed to be being called within the driveAway function, instead of just checking if all booleans
+were in the correct state needed.  This was kind of obsolete, and made it so that driveAway could never return false/negatively.  
 
 The solution was to dynamically create a property-value pair , boolean in value, that could be checked when driveAway is invoked, and
 dynamically deleted when parkUp is invoked after.  This gives us a way to switch in and out of states, 
